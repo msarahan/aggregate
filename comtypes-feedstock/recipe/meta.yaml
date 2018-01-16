@@ -1,10 +1,17 @@
+{% set name = "comtypes" %}
+{% set version = "1.1.4" %}
+{% set sha256 = "3174c7fbd043d33dfbe65b7ce91b9fd755c65c5f40f15a7678d71d5e80cdb73b" %}
+
 package:
-  name: comtypes
-  version: 1.1.2
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  git_url: https://github.com/enthought/comtypes.git
-  git_tag: 1.1.2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  sha256: {{ sha256 }}
+
+build:
+  skip: True  # [not win]
 
 requirements:
   build:
