@@ -1,15 +1,19 @@
+{% set name = "pycurl" %}
+{% set version = "7.43.0.1" %}
+{% set sha256 = "53548280ede7818f4dc2ad96608b9f08ae2cc2ca3874f2ceb6f97e3583f25bc4" %}
+
 package:
-  name: pycurl
-  version: 7.43.0
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.python.org/packages/12/3f/557356b60d8e59a1cce62ffc07ecc03e4f8a202c86adae34d895826281fb/pycurl-7.43.0.tar.gz
-  md5: c94bdba01da6004fa38325e9bd6b9760
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 43231bf2bafde923a6d9bb79e2407342a5f3382c1ef0a3b2e491c6a4e50b91aa
   patches:
     - msvc_warnings.patch                     # [win]
 
 build:
-  number: 3
+  number: 0
   detect_binary_files_with_prefix: False
 
 requirements:
@@ -21,8 +25,7 @@ requirements:
     - openssl
   run:
     - python
-    - curl 7.55.*
-    - openssl 1.0.2*
+    - {{ pin_compatible('curl') }}
 
 test:
   imports:
