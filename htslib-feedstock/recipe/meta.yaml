@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 0
+  number: 1
   # https://github.com/samtools/htslib/issues/86
   skip: True  # [win]
 
@@ -16,7 +16,7 @@ source:
 
 requirements:
   host:
-    - curl
+    - libcurl
     - bzip2
     - xz
     - zlib
@@ -28,14 +28,6 @@ requirements:
 
   build:
     - {{ compiler('c') }}
-
-  run:
-    - {{ pin_compatible('curl') }}
-    # Will be taken care of by run_exports
-    # - bzip2
-    # - xz
-    # - zlib
-    # - openssl
 
 test:
   commands:

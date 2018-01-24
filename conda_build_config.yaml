@@ -56,7 +56,7 @@ glib:
 gmp:
   - 6.1
 harfbuzz:
-  - 1.5
+  - 1.7
 hdf4:
   - 4.2
 hdf5:
@@ -143,7 +143,7 @@ cross_compiler_target_platform:
   - win-64                     # [win]
 target_platform:
   - win-64                     # [win]
-  # - win-32                     # [win]
+  - win-32                     # [win]
 tk:
   - 8.6                # [not ppc64le]
 vc:
