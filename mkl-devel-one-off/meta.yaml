@@ -1,0 +1,29 @@
+# this package was created because build 4 of mkl-devel had a bug in the site.cfg file (using unix paths
+#    for windows, which don't work).  We have this hack to avoid updating mkl also, which would force
+#    people to download ~200 MB for a tiny fix.
+
+package:
+  name: mkl-devel
+  version: 2018.0.1
+
+build:
+  number: 5
+
+outputs:
+  - name: mkl-devel
+    build:
+      # when stuff is built with MKL, ensure that constraint makes mkl runtime libs as new or
+      #     newer than build version
+      run_exports:
+        - {{ pin_subpackage('mkl', max_pin=None) }}
+    requirements:
+      host:
+        - mkl
+        - mkl-include   {{ mkl }}
+      run:
+        - {{ pin_compatible('mkl', exact=True) }}
+        - {{ pin_compatible('mkl-include', exact=True) }}
+    script: install-devel.sh
+
+about:
+  summary: Metapacakge of MKL headers and libraries for developing software that uses MKL
