@@ -2248,3 +2248,19 @@
 	path = send2trash-feedstock
 	url = ../send2trash-feedstock
 	branch = master
+[submodule "pyfmmlib-feedstock"]
+	path = pyfmmlib-feedstock
+	url = ../pyfmmlib-feedstock
+	branch = master
+[submodule "pywinpty-feedstock"]
+	path = pywinpty-feedstock
+	url = ../pywinpty-feedstock
+	branch = master
+[submodule "winpty-feedstock"]
+	path = winpty-feedstock
+	url = ../winpty-feedstock
+	branch = master
+[submodule "palettable-feedstock"]
+	path = palettable-feedstock
+	url = ../palettable-feedstock
+	branch = master
